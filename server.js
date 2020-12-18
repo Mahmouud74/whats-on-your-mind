@@ -27,6 +27,7 @@ const addpost=require('./routes/addpost.routes')
 const settings = require('./routes/settings.routes')
 const edit=require('./routes/edit.routes')
 const deletee=require('./routes/delete.routes')
+const root = require('./routes/root.routes');
 app.use(express.static(path.join(__dirname,'public')));
 app.set('view-engine','ejs');
 app.use(express.urlencoded({extended:false}));
@@ -39,7 +40,7 @@ app.use(addpost)
 app.use(settings)
 app.use(edit);
 app.use(deletee)
-
+app.use(root);
 //app.set('views',path.join(__dirname,'views'))
 mongoose.connect('mongodb+srv://admin:admin@cluster0.vk4zz.mongodb.net/examDB', { useNewUrlParser: true, useUnifiedTopology: true })
 app.listen(process.env.PORT ||3000,()=>{
