@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+    <%-include('./shared/header.ejs')%> 
+
+    <div class="cover">
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 ">
+                <div class="person card pb-5 px-5  text-center">
+                    <img src="images/man.jpg" width="250" alt="">
+                </div>
+            </div>
+            <div class="col-md-8 pt-4">
+                <h2><%=user.uname%></h2>
+                <h4 class="text-muted">Full Stack Web</h4>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 m-auto">
+                            <div class="post-topbar card m-2">
+                                <a class="btn btn-info btn-custom" data-toggle="modal" data-target="#exampleModal"
+                                    href="">New Post</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header text-center text-white">
+                                <h5 class="modal-title " id="exampleModalLabel">Post a text</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span class="text-white" aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/addpost" method="POST">
+                                        <input class="form-control my-3" placeholder="Enter Title" type="text" name="title">
+                                        <textarea  name="content" class="form-control" placeholder="Enter Text" name="" id="" cols="30"
+                                        rows="10"></textarea>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                        <button type="submit" class="btn btn-info">Post</button>
+                                    </div>
+                                </form>
+                            </div>
+            
+            
+                        </div>
+                    </div>
+                </div>
+            
+                <% for( let i = 0; i < postData.length; i++ ) { %>
+                
+                    <div class="post card p-4 auto">
+                        <div class="media">
+                            <img src="images/man.jpg" width="60" class="mr-3" alt="...">
+                            <div class="media-body">
+                                <a href="/edit/<%=postData[i]._id%>"><i class="fas fa-lg fa-edit float-right edit"></i></a>
+                                <a href="/delete/<%=postData[i]._id%>"> <i class="fas fa-lg fa-trash-alt float-right px-3 del"></i></a>
+                                <h5 class="mt-0"><%=postData[i].uname%></h5>
+                                3 min.
+                            </div>
+                        </div>
+                        <hr>
+                        <h3><%=postData[i].title%> </h3>
+                        <p class="pt-4"><%=postData[i].content%></p>
+
+                    </div>
+                <% } %>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <%-include('./shared/footer.ejs')%> 

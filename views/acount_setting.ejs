@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%-include('./shared/header.ejs')%>
+    <div class="container mt-5 pt-5">
+        <div class="row">
+            <div class="col-md-8 m-auto card p-5">
+                <div class="">
+                    <h3>Account Setting</h3>
+                    <hr>
+                    <form action="/handlepass" method="POST">
+                        <input placeholder="Enter Old Password" type="password" name="old" class="form-control my-2">
+                        <% if (oldPass.status == false) { %>
+                            <div class="alert alert-danger text-center">
+                                Not Your Password
+                            </div>
+                        <% } %>
+                        <input placeholder="New Password" type="password" name="neww" class="form-control my-2">
+                        <% if (errors.find(e=> e.param == 'neww')) { %>
+                         <div class="alert alert-danger text-center">
+                             Invalid PassWord
+                         </div>
+                        <% } %>
+                        <input placeholder="Repeat Password" type="password" name="retype" class="form-control my-2">
+                        <% if (errors.find(e=> e.param == 'retype')) { %>
+                            <div class="alert alert-danger text-center">
+                                Invalid Confirmation
+                            </div>
+                           <% } %>
+                        <button class="btn btn-info mt-3">Save Setting</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <%-include('./shared/footer.ejs')%>

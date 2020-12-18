@@ -1,0 +1,27 @@
+{
+  "name": "exam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongodb-session": "^2.4.1",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.8.0",
+    "iconv-lite": "^0.4.24",
+    "mongoose": "^5.11.8",
+    "require_optional": "^1.0.1",
+    "semver": "^5.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "engines": {"node": "12.18.4"},
+  "author": "",
+  "license": "ISC"
+}
